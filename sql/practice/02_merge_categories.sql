@@ -12,7 +12,7 @@ SELECT *,
           THEN 'Right arm Fast medium'
            ELSE bowler_type_clean
      END AS bowler_style
-FROM v_deliveries_ clean;
+FROM v_deliveries_clean;
 
 DROP VIEW IF EXISTS v_teams_clean;
 CREATE VIEW v_teams_clean AS
