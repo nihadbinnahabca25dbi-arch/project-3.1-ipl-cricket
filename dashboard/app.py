@@ -1,5 +1,6 @@
-import os
 import sqlite3
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -8,14 +9,10 @@ import streamlit as st
 # ==============================================================================
 # Database Connection Configuration
 # ==============================================================================
-DB = r'C:\\Users\\nihad\\OneDrive\\Desktop\\project 3.1\\project 3.1\\data\\ipl.db'
-if not os.path.exists(DB):
-    if os.path.exists('data/ipl.db'):
-        DB = 'data/ipl.db'
-    elif os.path.exists('../2_IPL_Cricket/ipl.db'):
-        DB = '../2_IPL_Cricket/ipl.db'
-    elif os.path.exists('2_IPL_Cricket/ipl.db'):
-        DB = '2_IPL_Cricket/ipl.db'
+DB = Path(__file__).resolve().parents[1] / "data" / "ipl.db"
+if not DB.is_file():
+    st.error(f"IPL database not found: {DB}")
+    st.stop()
 
 
 def q(sql: str, params: tuple = ()) -> pd.DataFrame:

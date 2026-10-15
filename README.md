@@ -123,6 +123,20 @@ The analysis is performed using the cleaned data rather than the original raw ta
 
 ---
 
+## Streamlit Dashboard
+
+The dashboard is launched from the repository root:
+
+```bash
+streamlit run app.py
+```
+
+It reads `data/ipl.db`, which is included in the repository for Streamlit Community
+Cloud deployment. To deploy, connect this GitHub repository in Streamlit Community
+Cloud and select `app.py` as the main file.
+
+---
+
 ## Project Workflow
 
 ```text
@@ -139,4 +153,3 @@ Cleaned Data
 Data Analysis
      ↓
 Findings & Insights  
-
